@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './App.css';
 import TeamForm from './Components/TeamForm';
+import TeamMember from './Components/TeamMember'
 
 
 const initialFormValues = {
@@ -13,12 +14,10 @@ const initialFormValues = {
 export default function App() {
 
   const [teamMembers, setTeamMembers] = useState([]);
-  const [errorText, setErrorText] = useState('');
-
   const [formValues, setFormValues] = useState(initialFormValues);
 
   const updateForm = (inputName, inputValue) => {
-    setFormValues=({...formValues, [inputName]: inputValue });
+    setFormValues({ ...formValues, [inputName]: inputValue });
   }
 
   const submitForm = () => {
@@ -27,20 +26,24 @@ export default function App() {
       email: formValues.email.trim(),
       role: formValues.role
     }
-    if (!newTeamMember.name || !newTeamMember.email || !newTeamMember.role){
-      setErrorText('Must enter all fields!');
-      return;
-    }
   }
-
-
-
-
 
   return (
     <div className="App">
       <h1>Hello Team Members! </h1>
-          <TeamForm />
+          <TeamForm 
+          values={formValues}
+          update={updateForm}
+          submit={submitForm}
+          />
+
+      {
+        teamMembers.map(event => {
+          return (
+            <TeamMember key={event} details={event} />
+          )
+        })
+      }
     </div>
   )
 }
