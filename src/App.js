@@ -38,9 +38,9 @@ export default function App() {
           />
 
       {
-        teamMembers.map(event => {
+        teamMembers.map(member => {
           return (
-            <TeamMember key={event} details={event} />
+            <TeamMember key={member.id} details={member} />
           )
         })
       }
