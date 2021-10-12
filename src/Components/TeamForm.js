@@ -1,11 +1,24 @@
 import React from 'react'
 
 export default function TeamForm(props){
+    const { values, update, submit } = props
+
+    const onChange = event => {
+        const value = event.target.value;
+    }
+
+    const onSubmit = event => {
+        event.preventDefault();
+        submit();
+    }
 
     return (
         <form className='form container'>
             <label>Name
                 <input 
+                    onChange={event => {
+                        debugger
+                    }}
                     type='text'
                     name='name'
                     maxLength='100'
@@ -15,6 +28,9 @@ export default function TeamForm(props){
 
             <label>Email 
                 <input 
+                onChange={event => {
+                    debugger
+                }}
                 type='email'
                 name='email'
                 placeholder='enter your email'
@@ -22,7 +38,9 @@ export default function TeamForm(props){
             </label>
 
             <label>Role
-                <select name='role'>
+                <select name='role' onChange={event => {
+                    debugger
+                }}>
                     <option value=''>Select a role</option>
                     <option value=''>Backend Engineer</option>
                     <option value=''>Frontend Engineer</option>
@@ -32,6 +50,7 @@ export default function TeamForm(props){
                 </select>
             </label>
             <button>Submit</button>
+            
         </form>
 
 )}
