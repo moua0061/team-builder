@@ -31,6 +31,7 @@ export default function App() {
   return (
     <div className="App">
       <h1>Hello Team Members! </h1>
+
           <TeamForm 
           values={formValues}
           update={updateForm}
@@ -38,9 +39,9 @@ export default function App() {
           />
 
       {
-        teamMembers.map(member => {
+        teamMembers.map((member, index) => {
           return (
-            <TeamMember key={member.id} details={member} />
+            <TeamMember key={index} details={member} />
           )
         })
       }
