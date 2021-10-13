@@ -1,15 +1,13 @@
 import React from 'react'
 
 export default function TeamMember(props){
-    const { details } = props
-
-    console.log(details);
+    const { member } = props
 
     return (
         <div className='member container'>
-            <h2>{details.name}</h2>
-            <p>Email: {details.email}</p>
-            <p>Role: {details.role}</p>
+            <h2>{member.name}</h2>
+            <p>Email: {member.email}</p>
+            <p>Role: {member.role}</p>
         </div>
 
 

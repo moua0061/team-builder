@@ -5,7 +5,7 @@ export default function TeamForm(props){
 
     const onChange = event => {
         const name = event.target.name;
-        const value = event.target.values;
+        const value = event.target.value;
         update (name, value);
     }
 
@@ -15,7 +15,7 @@ export default function TeamForm(props){
     }
 
     return (
-        <form className='form container'>
+        <form className='form container' onSubmit={onSubmit}>
             <label>Name
                 <input 
                     value={values.name}
@@ -40,14 +40,14 @@ export default function TeamForm(props){
             <label>Role
                 <select name='role' value={values.role} onChange={onChange}>
                     <option value=''>Select a role</option>
-                    <option value=''>Backend Engineer</option>
-                    <option value=''>Frontend Engineer</option>
-                    <option value=''>UI/UX Designer</option>
-                    <option value=''>Full-Stack Engineer</option>
-                    <option value=''>Other</option>
+                    <option value='backend'>Backend Engineer</option>
+                    <option value='frontend'>Frontend Engineer</option>
+                    <option value='designer'>UI/UX Designer</option>
+                    <option value='fullstack'>Full-Stack Engineer</option>
+                    <option value='other'>Other</option>
                 </select>
             </label>
             <button>Submit</button>
         </form>
-
-)}
+    )
+}

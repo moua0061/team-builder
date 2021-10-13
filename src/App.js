@@ -26,6 +26,8 @@ export default function App() {
       email: formValues.email.trim(),
       role: formValues.role
     }
+    setTeamMembers(teamMembers.concat(newTeamMember))
+    setFormValues(initialFormValues)
   }
 
   return (
@@ -41,7 +43,7 @@ export default function App() {
       {
         teamMembers.map((member, index) => {
           return (
-            <TeamMember key={index} details={member} />
+            <TeamMember key={index} member={member} />
           )
         })
       }
